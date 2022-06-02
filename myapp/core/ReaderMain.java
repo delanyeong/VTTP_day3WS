@@ -19,12 +19,22 @@ public class ReaderMain {
 
             BufferedReader br = new BufferedReader(reader);
 
+            
+
             while ((line = br.readLine()) != null) {
-            String[] values = line.split(",");
-            System.out.printf("race: %s, math: %s, reading: %s, writing: %s\n", values[1], values[5],values[6], values[7]);
+                String[] values = line.split(",");
+                
+                for (int i = 0 ; i < values.length ; i++) {
+                    values[i] = (values[i].replaceAll("\"", ""));
+                }
+
+                System.out.printf("race: %s, math: %d, reading: %d, writing: %d\n", a);
             }
+            
 
             reader.close();
+
+            
 
         } catch (FileNotFoundException ex) {
             System.err.printf("Error: %s\n ", ex.getMessage());
